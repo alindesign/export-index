@@ -1,6 +1,6 @@
 {
     "name": "export-index",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
     "packageManager": "pnpm@10.4.1",
     "bin": "bin/export-index",

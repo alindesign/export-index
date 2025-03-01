@@ -34,10 +34,21 @@ function generatedFileContent(contentLines: string[]) {
 }
 
 async function generateExportAll(index: ParsedIndex, indexFile: string) {
-  const contentLines: string[] = index.files.map(
-    (file) =>
-      `export * from "${exportFilePath(file.relativePath, index.language || "typescript", index.features || [])}";`,
-  );
+  const contentLines: string[] = index.files
+    .map((file) => {
+      const filename = exportFilePath(
+        file.relativePath,
+        index.language || "typescript",
+        index.features || [],
+      );
+
+      if (file.source === indexFile) {
+        return "";
+      }
+
+      return `export * from "${filename}";`;
+    })
+    .filter(Boolean);
 
   await fs.writeFile(indexFile, generatedFileContent(contentLines));
 }
