@@ -1,18 +1,15 @@
 import type { Options } from "tsup";
 
 const tsup: Options = {
-  bundle: false,
+  bundle: true,
   clean: true,
-  dts: true,
-  entry: ["src/**/*.ts"],
+  dts: false,
+  entry: ["src/index.ts"],
   format: ["cjs", "esm"],
-  minify: false,
+  minify: true,
   outDir: "dist",
   skipNodeModulesBundle: true,
-  sourcemap: true,
-  splitting: true,
   target: "node22",
-  keepNames: true,
 };
 
 export default tsup;
