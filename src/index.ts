@@ -5,7 +5,7 @@ import { parseConfig, ParsedConfig, resolveConfigPath } from "./config";
 import { generateIndex, generateInitConfiguration } from "./generator";
 import { populateIndex } from "./indexer";
 
-async function main() {
+export async function main() {
   const start = performance.now();
   const argv = await yargs(hideBin(process.argv))
     .option("config", {
@@ -50,5 +50,3 @@ async function main() {
   const diff = performance.now() - start;
   console.log(chalk.green("Done in %ds"), (diff / 1000).toFixed(2));
 }
-
-void main();
