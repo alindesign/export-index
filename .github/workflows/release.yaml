@@ -19,5 +19,5 @@ jobs:
       - run: pnpm build
       - run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks
       - run: rm -f ~/.npmrc
