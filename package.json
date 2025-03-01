@@ -1,38 +1,43 @@
 {
-  "name": "export-index",
-  "version": "0.1.0",
-  "description": "",
-  "license": "MIT",
-  "packageManager": "pnpm@10.4.1",
-  "type": "module",
-  "bin": "dist/index.js",
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "scripts": {
-    "format": "prettier -w ./src",
-    "cli": "node dist/index.js",
-    "dev": "tsup --watch",
-    "build": "tsup"
-  },
-  "devDependencies": {
-    "@types/node": "^22.13.6",
-    "@types/yargs": "^17.0.33",
-    "prettier": "^3.5.2",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
-  },
-  "dependencies": {
-    "chalk": "^5.4.1",
-    "yargs": "^17.7.2"
-  },
-  "peerDependencies": {
-    "typescript": ">=5.0.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  }
+    "name": "export-index",
+    "version": "0.1.0",
+    "license": "MIT",
+    "packageManager": "pnpm@10.4.1",
+    "type": "module",
+    "bin": "dist/index.js",
+    "description": "Project indexer, for when you to lazy to maintain index files.",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "keywords": ["typescript", "export", "index", "indexer", "project"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alindesign/export-index"
+    },
+    "scripts": {
+        "format": "prettier -w ./src",
+        "cli": "node dist/index.js",
+        "dev": "tsup --watch",
+        "build": "tsup"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.6",
+        "@types/yargs": "^17.0.33",
+        "prettier": "^3.5.2",
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.2"
+    },
+    "dependencies": {
+        "chalk": "^5.4.1",
+        "yargs": "^17.7.2"
+    },
+    "peerDependencies": {
+        "typescript": ">=5.0.0"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ]
+    }
 }
