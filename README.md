@@ -46,7 +46,7 @@ export default fooBar;
 ```
 
 ```json5
-// .indexrc
+// .indexrc (generated with `npx export-index --init`)
 {
     "language": "typescript",
     "exportFormat": "all",

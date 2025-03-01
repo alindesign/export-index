@@ -1,7 +1,7 @@
 import path from "node:path";
-import { IndexFeature, IndexFiles, ParsedIndex } from "./config.js";
 import fs from "node:fs/promises";
 import chalk from "chalk";
+import { fileName, IndexFeature, IndexFiles, ParsedIndex } from "./config";
 
 function exportFilePath(
   relativePath: string,
@@ -56,4 +56,23 @@ export async function generateIndex(index: ParsedIndex) {
     await generateExportAll(index, indexFile);
     return;
   }
+}
+
+export async function generateInitConfiguration() {
+  await fs.writeFile(
+    fileName,
+    JSON.stringify(
+      {
+        language: "typescript",
+        exportFormat: "all",
+        indexes: [
+          {
+            dir: "src",
+          },
+        ],
+      },
+      null,
+      2,
+    ),
+  );
 }

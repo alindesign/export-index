@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 import * as ts from "typescript";
-import { Index } from "./config.js";
 import path from "node:path";
+import { Index } from "./config";
 
 export function populateIndex(index: Index) {
   if (!fs.existsSync(index.dir)) {

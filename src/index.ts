@@ -1,9 +1,9 @@
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs";
 import chalk from "chalk";
-import { parseConfig, ParsedConfig, resolveConfigPath } from "./config.js";
-import { populateIndex } from "./indexer.js";
-import { generateIndex } from "./generator.js";
+import { parseConfig, ParsedConfig, resolveConfigPath } from "./config";
+import { generateIndex, generateInitConfiguration } from "./generator";
+import { populateIndex } from "./indexer";
 
 async function main() {
   const start = performance.now();
@@ -20,6 +20,11 @@ async function main() {
       description: "Current working directory",
       default: process.cwd(),
     })
+    .option("init", {
+      alias: "i",
+      type: "boolean",
+      description: "Create configuration",
+    })
     .middleware((argv) => {
       if (argv.cwd) {
         process.chdir(argv.cwd);
@@ -31,6 +36,12 @@ async function main() {
       argv.parsedConfig = config;
     })
     .help().argv;
+
+  if (argv.init) {
+    console.log(chalk.green("Creating configuration..."));
+    await generateInitConfiguration();
+    return;
+  }
 
   console.log(chalk.green("Generating indexes..."));
   const { indexes } = argv.parsedConfig as ParsedConfig;

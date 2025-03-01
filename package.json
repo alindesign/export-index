@@ -1,9 +1,8 @@
 {
     "name": "export-index",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "packageManager": "pnpm@10.4.1",
-    "type": "module",
     "bin": "dist/index.js",
     "description": "Project indexer, for when you to lazy to maintain index files.",
     "files": [
